@@ -1,1 +1,96 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GAS MINI Group</title>
+<style>
+body{margin:0;background:#101010;color:#fff;font-family:Arial,sans-serif;line-height:1.6}
+header{text-align:center;padding:28px 12px;background:#181818;border-bottom:3px solid #d5ad52}
+header h1{color:#d5ad52;margin:0;font-size:28px}
+nav{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;padding:12px;background:#222}
+button{background:#d5ad52;color:#111;border:0;border-radius:7px;padding:12px;font-weight:bold;cursor:pointer}
+nav button{padding:10px}
+main{max-width:800px;margin:auto;padding:16px}
+section{display:none}
+section.active{display:block}
+.card{background:#1c1c1c;border:1px solid #444;border-radius:12px;padding:18px;margin:16px 0}
+h2{color:#d5ad52}
+a{color:#e6c36c}
+label{display:block;margin-top:14px}
+input,textarea{box-sizing:border-box;width:100%;padding:12px;background:#101010;color:white;border:1px solid #666;border-radius:6px}
+textarea{min-height:80px}
+footer{text-align:center;padding:24px;color:#aaa}
+</style>
+</head>
+<body>
+<header>
+<h1>GAS MINI GROUP</h1>
+<p>Good Cars. Great People. One MINI Family.</p>
+</header>
+<nav>
+<button onclick="page('home')">Home</button>
+<button onclick="page('events')">Events</button>
+<button onclick="page('gallery')">Car Gallery</button>
+<button onclick="page('join')">Join Us</button>
+<button onclick="page('social')">Social Media</button>
+</nav>
+<main>
+<section id="home" class="active">
+<div class="card">
+<h2>Welcome to GAS MINI Group</h2>
+<p>A community for MINI enthusiasts. Meet fellow owners, share your pride and join us on the road.</p>
+<button onclick="page('join')">Apply to Join</button>
+</div>
+<div class="card">
+<h2>Our Club</h2>
+<p>GAS MINI Group brings MINI owners together for meets, drives, events and great conversations. Whatever MINI you drive, you're welcome to apply.</p>
+</div>
+</section>
+<section id="events">
+<h2>Club Events</h2>
+<div class="card"><p>Upcoming meets and drives will be announced here.</p></div>
+</section>
+<section id="gallery">
+<h2>MINI Car Gallery</h2>
+<div class="card"><p>Club MINI photos will appear here when added.</p></div>
+</section>
+<section id="join">
+<h2>Join GAS MINI Group</h2>
+<p>Tell us about you and your MINI. Please do not enter your full home address.</p>
+<form id="joinForm">
+<label>Your name *</label><input name="name" required maxlength="100">
+<label>MINI model *</label><input name="model" required placeholder="e.g. Cooper S">
+<label>Year or generation *</label><input name="year" required placeholder="e.g. 2018 / F56">
+<label>Town or county *</label><input name="area" required>
+<label>Photo of your MINI</label><input type="file" accept="image/*">
+<label>Why would you like to join? (optional)</label><textarea name="reason"></textarea>
+<p>Demo only: this form does not send applications to the club admins.</p>
+<button type="submit">Submit Demo Application</button>
+</form>
+<p id="message"></p>
+</section>
+<section id="social">
+<h2>Follow the Club</h2>
+<div class="card">
+<p><a href="https://www.facebook.com/share/g/1E2Lm5jLfd/?mibextid=wwXIfr" target="_blank">Facebook Group</a></p>
+<p><a href="https://www.instagram.com/gas_mini_group/" target="_blank">Instagram</a></p>
+<p><a href="https://www.tiktok.com/@gasminigroup?_r=1&_t=ZN-9AjmL2f1xhu" target="_blank">TikTok</a></p>
+</div>
+</section>
+</main>
+<footer>GAS MINI GROUP · MINI enthusiasts together</footer>
+<script>
+function page(id){
+document.querySelectorAll('main section').forEach(s=>s.classList.remove('active'));
+document.getElementById(id).classList.add('active');
+window.scrollTo(0,0);
+}
+document.getElementById('joinForm').addEventListener('submit',function(e){
+e.preventDefault();
+document.getElementById('message').textContent='Thank you! This is a demo form and your application has not been sent to the club.';
+});
+</script>
+</body>
+</html>
